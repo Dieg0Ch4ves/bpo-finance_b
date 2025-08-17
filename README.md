@@ -43,8 +43,7 @@ bpo-finance/
 ├── docker-compose.yml
 ├── .env # local (NÃO comitar)
 ├── postman/
-│ ├── bpo-api-collection.json
-│ └── bpo-api-environment.json
+│ └── bpo-finance_collection.json
 ├── src/
 │ ├── main/
 │ │ ├── kotlin/com/diego/bpo/

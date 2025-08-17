@@ -1,0 +1,344 @@
+{
+  "info": {
+    "_postman_id": "5cae688d-432a-4b6e-9ae2-949dc01dec61",
+    "name": "API - bpo-finance",
+    "description": "Collection para testar todos os endpoints dos controllers Payable e Receivable",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "26955637"
+  },
+  "item": [
+    {
+      "name": "Payables",
+      "item": [
+        {
+          "name": "GET /api/payables (list, example filters)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/payables?status=PENDING&vendor=Fornecedor&dueFrom=2025-08-01&dueTo=2025-08-31",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payables"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "PENDING"
+                },
+                {
+                  "key": "vendor",
+                  "value": "Fornecedor"
+                },
+                {
+                  "key": "dueFrom",
+                  "value": "2025-08-01"
+                },
+                {
+                  "key": "dueTo",
+                  "value": "2025-08-31"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST /api/payables (create)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"Compra de licenças - Agosto\",\n  \"vendor\": \"Fornecedor A\",\n  \"amount\": 1250.50,\n  \"dueDate\": \"2025-08-20\",\n  \"category\": \"Software\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/payables",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payables"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /api/payables/:id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/payables/{{payableId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payables",
+                "{{payableId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /api/payables/:id (update)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"Compra de licenças - Agosto (atualizado)\",\n  \"vendor\": \"Fornecedor A\",\n  \"amount\": 1299.99,\n  \"dueDate\": \"2025-08-25\",\n  \"category\": \"Software\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/payables/{{payableId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payables",
+                "{{payableId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /api/payables/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/payables/{{payableId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payables",
+                "{{payableId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH /api/payables/:id/pay",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/payables/{{payableId}}/pay",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "payables",
+                "{{payableId}}",
+                "pay"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Receivables",
+      "item": [
+        {
+          "name": "GET /api/receivables (list, example filters)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/receivables?status=RECEIVED&customer=Cliente&dueFrom=2025-08-01&dueTo=2025-08-31",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "receivables"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "RECEIVED"
+                },
+                {
+                  "key": "customer",
+                  "value": "Cliente"
+                },
+                {
+                  "key": "dueFrom",
+                  "value": "2025-08-01"
+                },
+                {
+                  "key": "dueTo",
+                  "value": "2025-08-31"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST /api/receivables (create)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"Venda consultoria - Agosto\",\n  \"customer\": \"Cliente X\",\n  \"amount\": 3000.00,\n  \"dueDate\": \"2025-08-30\",\n  \"category\": \"Serviço\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/receivables",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "receivables"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET /api/receivables/:id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/receivables/{{receivableId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "receivables",
+                "{{receivableId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT /api/receivables/:id (update)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"Venda consultoria - Agosto (atualizado)\",\n  \"customer\": \"Cliente X\",\n  \"amount\": 3200.00,\n  \"dueDate\": \"2025-08-31\",\n  \"category\": \"Serviço\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/receivables/{{receivableId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "receivables",
+                "{{receivableId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE /api/receivables/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/receivables/{{receivableId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "receivables",
+                "{{receivableId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH /api/receivables/:id/receive",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/receivables/{{receivableId}}/receive",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "receivables",
+                "{{receivableId}}",
+                "receive"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/health",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "health"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ]
+}
